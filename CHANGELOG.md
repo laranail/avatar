@@ -5,11 +5,11 @@ All notable changes to `laranail/avatar` are documented in this file.
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [0.1.0] - 2026-08-14
 
 ### Added
 
-Extracted from `laranail/toolkit`'s `Modules\Avatar` and `Modules\Gravatar`, merged into one package.
+Initial release. Extracted from `laranail/toolkit`'s `Modules\Avatar` and `Modules\Gravatar`, merged into one package.
 
 - **Two seams, not one.** `Contracts\AvatarSource` answers *who*; `Contracts\AvatarRenderer` answers
   *how*. They vary independently — a Gravatar identity can fall back to locally-rendered initials,
