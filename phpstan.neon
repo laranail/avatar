@@ -1,0 +1,13 @@
+# Level 8 with larastan. This package has no framework-free Core, so there is
+# one config rather than atlas's two.
+includes:
+    - vendor/larastan/larastan/extension.neon
+
+parameters:
+    level: 8
+    paths:
+        - src
+        - tests/TestCase.php
+    excludePaths:
+        - vendor
+    treatPhpDocTypesAsCertain: false

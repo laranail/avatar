@@ -1,0 +1,113 @@
+{
+    "name": "laranail/avatar",
+    "description": "Avatars for Laravel — Gravatar and locally-rendered initials behind one immutable fluent builder, with independent source and renderer seams and no image extension required.",
+    "keywords": [
+        "laravel",
+        "laranail",
+        "avatar",
+        "gravatar",
+        "initials",
+        "identicon",
+        "svg",
+        "profile-picture"
+    ],
+    "homepage": "https://opensource.simtabi.com/products/laranail/avatar",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Simtabi LLC",
+            "email": "opensource@simtabi.com",
+            "homepage": "https://opensource.simtabi.com",
+            "role": "Organization"
+        },
+        {
+            "name": "Imani Manyara",
+            "email": "imani@simtabi.com",
+            "role": "Maintainer"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/laranail/avatar/issues",
+        "source": "https://github.com/laranail/avatar",
+        "docs": "https://opensource.simtabi.com/documentation/laranail/avatar/"
+    },
+    "require": {
+        "php": "^8.4.1 || ^8.5",
+        "illuminate/contracts": "^13.0",
+        "illuminate/support": "^13.0",
+        "laranail/package-tools": "^0.1"
+    },
+    "require-dev": {
+        "larastan/larastan": "^3.0",
+        "laravel/pint": "^1.18",
+        "mockery/mockery": "^1.6",
+        "orchestra/testbench": "^11.0",
+        "pestphp/pest": "^4.0",
+        "pestphp/pest-plugin-laravel": "^4.0",
+        "php-parallel-lint/php-parallel-lint": "^1.4",
+        "phpstan/phpstan": "^2.0",
+        "phpunit/phpunit": "^12.0",
+        "rector/rector": "^2.0",
+        "roave/security-advisories": "dev-latest"
+    },
+    "suggest": {
+        "intervention/image": "Adds the raster renderer for PNG, JPEG and WebP output. Not required — the SVG renderer is the default and needs no image extension at all."
+    },
+    "autoload": {
+        "psr-4": {
+            "Simtabi\\Laranail\\Avatar\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Simtabi\\Laranail\\Avatar\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/pest --no-coverage --colors=always",
+        "test-coverage": "vendor/bin/pest --coverage --colors=always",
+        "lint": [
+            "@parallel-lint",
+            "@pint",
+            "@phpstan",
+            "@rector"
+        ],
+        "parallel-lint": "vendor/bin/parallel-lint --exclude vendor src tests",
+        "pint": "vendor/bin/pint --test",
+        "pint-fix": "vendor/bin/pint",
+        "phpstan": "vendor/bin/phpstan analyse --no-progress --memory-limit=512M",
+        "rector": "vendor/bin/rector process --dry-run --no-progress-bar",
+        "rector-fix": "vendor/bin/rector process"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Simtabi\\Laranail\\Avatar\\Providers\\AvatarServiceProvider"
+            ],
+            "aliases": {
+                "Avatar": "Simtabi\\Laranail\\Avatar\\Facades\\Avatar"
+            }
+        },
+        "branch-alias": {
+            "dev-main": "0.1.x-dev"
+        }
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/laranail/console"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/laranail/package-tools"
+        }
+    ]
+}
