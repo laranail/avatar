@@ -5,6 +5,16 @@ All notable changes to `laranail/avatar` are documented in this file.
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Fixed
+
+- **The "Without GD or Imagick" job could never run.** It omitted the two extensions from
+  `setup-php`'s list, but omission does not remove what the runner's PHP already ships, so
+  GD stayed loaded and the job's own guard (`"gd is loaded; this job proves nothing"`)
+  correctly refused to report a pass. They are now disabled explicitly with setup-php's
+  `:gd, :imagick` syntax. The guard was right; the setup was not.
+
 ## [0.1.0] - 2026-08-14
 
 ### Added
