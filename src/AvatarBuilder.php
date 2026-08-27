@@ -51,7 +51,7 @@ final readonly class AvatarBuilder
     {
         $resolved = $shape instanceof Shape ? $shape : Shape::resolve($shape);
 
-        return ! $resolved instanceof Shape ? $this : $this->withAppearance($this->appearance->withShape($resolved));
+        return $resolved instanceof Shape ? $this->withAppearance($this->appearance->withShape($resolved)) : $this;
     }
 
     public function circle(): self
