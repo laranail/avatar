@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Simtabi\Laranail\Avatar\Data;
 
+use Stringable;
 use RuntimeException;
 use Simtabi\Laranail\Avatar\Enums\Format;
-use Stringable;
 
 /**
  * A rendered avatar: either a URL to fetch, or bytes to serve.
@@ -25,6 +25,11 @@ final readonly class Avatar implements Stringable
         public ?string $contents,
         public Identity $identity,
     ) {}
+
+    public function __toString(): string
+    {
+        return $this->src();
+    }
 
     public static function url(string $url, Identity $identity, Format $format = Format::Url): self
     {
@@ -79,10 +84,5 @@ final readonly class Avatar implements Stringable
             'This avatar is a URL, not bytes. Fetch it yourself if you need the image — this object '
             . 'does not make network calls, so that a template read cannot time out.',
         );
-    }
-
-    public function __toString(): string
-    {
-        return $this->src();
     }
 }

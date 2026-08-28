@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace Simtabi\Laranail\Avatar\Adapters\Renderers;
 
-use Simtabi\Laranail\Avatar\Contracts\AvatarRenderer;
-use Simtabi\Laranail\Avatar\Data\Appearance;
 use Simtabi\Laranail\Avatar\Data\Avatar;
-use Simtabi\Laranail\Avatar\Data\Identity;
-use Simtabi\Laranail\Avatar\Enums\Format;
 use Simtabi\Laranail\Avatar\Enums\Shape;
+use Simtabi\Laranail\Avatar\Enums\Format;
+use Simtabi\Laranail\Avatar\Data\Identity;
+use Simtabi\Laranail\Avatar\Data\Appearance;
+use Simtabi\Laranail\Avatar\Contracts\AvatarRenderer;
 
 /**
  * Initials as an SVG document.

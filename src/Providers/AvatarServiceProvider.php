@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace Simtabi\Laranail\Avatar\Providers;
 
-use Illuminate\Contracts\Foundation\Application;
 use Override;
-use Simtabi\Laranail\Avatar\AvatarManager;
-use Simtabi\Laranail\Avatar\Data\Appearance;
-use Simtabi\Laranail\Avatar\Enums\Format;
 use Simtabi\Laranail\Avatar\Enums\Shape;
+use Simtabi\Laranail\Avatar\Enums\Format;
+use Simtabi\Laranail\Avatar\AvatarManager;
 use Simtabi\Laranail\Package\Tools\Package;
+use Simtabi\Laranail\Avatar\Data\Appearance;
+use Illuminate\Contracts\Foundation\Application;
 use Simtabi\Laranail\Package\Tools\Providers\PackageServiceProvider;
 
 /**

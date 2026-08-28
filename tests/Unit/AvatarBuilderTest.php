@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 
-use Simtabi\Laranail\Avatar\Adapters\Renderers\GravatarUrlRenderer;
+use Simtabi\Laranail\Avatar\Data\Avatar;
+use Simtabi\Laranail\Avatar\Enums\Shape;
+use Simtabi\Laranail\Avatar\Enums\Format;
+use Simtabi\Laranail\Avatar\AvatarBuilder;
+use Simtabi\Laranail\Avatar\AvatarManager;
+use Simtabi\Laranail\Avatar\Data\Identity;
+use Simtabi\Laranail\Avatar\Data\Appearance;
+use Simtabi\Laranail\Avatar\Contracts\AvatarSource;
+use Simtabi\Laranail\Avatar\Contracts\AvatarRenderer;
 use Simtabi\Laranail\Avatar\Adapters\Renderers\SvgRenderer;
 use Simtabi\Laranail\Avatar\Adapters\Sources\GravatarSource;
 use Simtabi\Laranail\Avatar\Adapters\Sources\InitialsSource;
-use Simtabi\Laranail\Avatar\AvatarBuilder;
-use Simtabi\Laranail\Avatar\AvatarManager;
-use Simtabi\Laranail\Avatar\Contracts\AvatarRenderer;
-use Simtabi\Laranail\Avatar\Contracts\AvatarSource;
-use Simtabi\Laranail\Avatar\Data\Appearance;
-use Simtabi\Laranail\Avatar\Data\Avatar;
-use Simtabi\Laranail\Avatar\Data\Identity;
-use Simtabi\Laranail\Avatar\Enums\Format;
-use Simtabi\Laranail\Avatar\Enums\Shape;
+use Simtabi\Laranail\Avatar\Adapters\Renderers\GravatarUrlRenderer;
 
 function avatars(): AvatarManager
 {
@@ -305,13 +305,13 @@ it('picks text colour by luminance rather than always white', function (string $
 
     expect($appearance->foregroundFor(new Identity(key: 'x')))->toBe($expected);
 })->with([
-    'white' => ['#ffffff', '#1f2933'],
+    'white'      => ['#ffffff', '#1f2933'],
     'near white' => ['#f5f5f5', '#1f2933'],
-    'yellow' => ['#ffeb3b', '#1f2933'],
-    'green' => ['#00ff00', '#1f2933'],
-    'blue' => ['#0000ff', '#ffffff'],
-    'black' => ['#000000', '#ffffff'],
-    'shorthand' => ['#fff', '#1f2933'],
+    'yellow'     => ['#ffeb3b', '#1f2933'],
+    'green'      => ['#00ff00', '#1f2933'],
+    'blue'       => ['#0000ff', '#ffffff'],
+    'black'      => ['#000000', '#ffffff'],
+    'shorthand'  => ['#fff', '#1f2933'],
 ]);
 
 it('applies sRGB gamma rather than averaging the channels', function (): void {

@@ -5,13 +5,13 @@ declare(strict_types=1);
 namespace Simtabi\Laranail\Avatar;
 
 use RuntimeException;
-use Simtabi\Laranail\Avatar\Contracts\AvatarRenderer;
-use Simtabi\Laranail\Avatar\Contracts\AvatarSource;
-use Simtabi\Laranail\Avatar\Data\Appearance;
 use Simtabi\Laranail\Avatar\Data\Avatar;
-use Simtabi\Laranail\Avatar\Data\Identity;
-use Simtabi\Laranail\Avatar\Enums\Format;
 use Simtabi\Laranail\Avatar\Enums\Shape;
+use Simtabi\Laranail\Avatar\Enums\Format;
+use Simtabi\Laranail\Avatar\Data\Identity;
+use Simtabi\Laranail\Avatar\Data\Appearance;
+use Simtabi\Laranail\Avatar\Contracts\AvatarSource;
+use Simtabi\Laranail\Avatar\Contracts\AvatarRenderer;
 
 /**
  * The fluent entry point: a subject in, an {@see Avatar} out.

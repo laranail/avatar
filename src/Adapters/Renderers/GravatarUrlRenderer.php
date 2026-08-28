@@ -5,12 +5,12 @@ declare(strict_types=1);
 namespace Simtabi\Laranail\Avatar\Adapters\Renderers;
 
 use RuntimeException;
-use Simtabi\Laranail\Avatar\Adapters\Sources\GravatarSource;
-use Simtabi\Laranail\Avatar\Contracts\AvatarRenderer;
-use Simtabi\Laranail\Avatar\Data\Appearance;
 use Simtabi\Laranail\Avatar\Data\Avatar;
-use Simtabi\Laranail\Avatar\Data\Identity;
 use Simtabi\Laranail\Avatar\Enums\Format;
+use Simtabi\Laranail\Avatar\Data\Identity;
+use Simtabi\Laranail\Avatar\Data\Appearance;
+use Simtabi\Laranail\Avatar\Contracts\AvatarRenderer;
+use Simtabi\Laranail\Avatar\Adapters\Sources\GravatarSource;
 
 /**
  * An identity with an email, rendered as a Gravatar URL.

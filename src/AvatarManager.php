@@ -6,14 +6,14 @@ namespace Simtabi\Laranail\Avatar;
 
 use Closure;
 use RuntimeException;
-use Simtabi\Laranail\Avatar\Adapters\Renderers\GravatarUrlRenderer;
+use Simtabi\Laranail\Avatar\Data\Avatar;
+use Simtabi\Laranail\Avatar\Data\Appearance;
+use Simtabi\Laranail\Avatar\Contracts\AvatarSource;
+use Simtabi\Laranail\Avatar\Contracts\AvatarRenderer;
 use Simtabi\Laranail\Avatar\Adapters\Renderers\SvgRenderer;
 use Simtabi\Laranail\Avatar\Adapters\Sources\GravatarSource;
 use Simtabi\Laranail\Avatar\Adapters\Sources\InitialsSource;
-use Simtabi\Laranail\Avatar\Contracts\AvatarRenderer;
-use Simtabi\Laranail\Avatar\Contracts\AvatarSource;
-use Simtabi\Laranail\Avatar\Data\Appearance;
-use Simtabi\Laranail\Avatar\Data\Avatar;
+use Simtabi\Laranail\Avatar\Adapters\Renderers\GravatarUrlRenderer;
 
 /**
  * Holds the registered sources and renderers, and hands out builders.

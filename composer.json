@@ -1,6 +1,6 @@
 {
     "name": "laranail/avatar",
-    "description": "Avatars for Laravel — Gravatar and locally-rendered initials behind one immutable fluent builder, with independent source and renderer seams and no image extension required.",
+    "description": "Avatars for Laravel \u2014 Gravatar and locally-rendered initials behind one immutable fluent builder, with independent source and renderer seams and no image extension required.",
     "keywords": [
         "laravel",
         "laranail",
@@ -51,7 +51,7 @@
         "roave/security-advisories": "dev-latest"
     },
     "suggest": {
-        "intervention/image": "Adds the raster renderer for PNG, JPEG and WebP output. Not required — the SVG renderer is the default and needs no image extension at all."
+        "intervention/image": "Adds the raster renderer for PNG, JPEG and WebP output. Not required \u2014 the SVG renderer is the default and needs no image extension at all."
     },
     "autoload": {
         "psr-4": {
@@ -73,11 +73,12 @@
             "@rector"
         ],
         "parallel-lint": "vendor/bin/parallel-lint --exclude vendor src tests",
-        "pint": "vendor/bin/pint --test",
-        "pint-fix": "vendor/bin/pint",
+        "pint": "vendor/bin/pint --test --config vendor/laranail/package-tools/pint.json",
+        "pint-fix": "vendor/bin/pint --parallel --config vendor/laranail/package-tools/pint.json",
         "phpstan": "vendor/bin/phpstan analyse --no-progress --memory-limit=512M",
         "rector": "vendor/bin/rector process --dry-run --no-progress-bar",
-        "rector-fix": "vendor/bin/rector process"
+        "rector-fix": "vendor/bin/rector process",
+        "format": "@pint-fix"
     },
     "extra": {
         "laravel": {

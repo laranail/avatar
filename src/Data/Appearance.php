@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Simtabi\Laranail\Avatar\Data;
 
-use Simtabi\Laranail\Avatar\Enums\Format;
 use Simtabi\Laranail\Avatar\Enums\Shape;
+use Simtabi\Laranail\Avatar\Enums\Format;
 
 /**
  * How an avatar should look, as one immutable value.
@@ -21,6 +21,21 @@ use Simtabi\Laranail\Avatar\Enums\Shape;
  */
 final readonly class Appearance
 {
+    /**
+     * Colours chosen for contrast against white text at typical avatar sizes.
+     *
+     * Deliberately not random hex: a palette that can produce `#f5f5f5` renders
+     * white initials on near-white, which is invisible and is what an unbounded
+     * random colour eventually does.
+     *
+     * @var list<string>
+     */
+    public const array DEFAULT_PALETTE = [
+        '#1abc9c', '#2ecc71', '#3498db', '#9b59b6', '#34495e',
+        '#16a085', '#27ae60', '#2980b9', '#8e44ad', '#2c3e50',
+        '#f39c12', '#d35400', '#c0392b', '#7f8c8d', '#e74c3c',
+    ];
+
     /**
      * @param list<string> $palette background colours to choose from
      */
@@ -40,21 +55,6 @@ final readonly class Appearance
         public int $quality = 90,
         public bool $https = true,
     ) {}
-
-    /**
-     * Colours chosen for contrast against white text at typical avatar sizes.
-     *
-     * Deliberately not random hex: a palette that can produce `#f5f5f5` renders
-     * white initials on near-white, which is invisible and is what an unbounded
-     * random colour eventually does.
-     *
-     * @var list<string>
-     */
-    public const array DEFAULT_PALETTE = [
-        '#1abc9c', '#2ecc71', '#3498db', '#9b59b6', '#34495e',
-        '#16a085', '#27ae60', '#2980b9', '#8e44ad', '#2c3e50',
-        '#f39c12', '#d35400', '#c0392b', '#7f8c8d', '#e74c3c',
-    ];
 
     public static function default(): self
     {
