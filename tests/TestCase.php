@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Simtabi\Laranail\Avatar\Tests;
 
-use Orchestra\Testbench\TestCase as OrchestraTestCase;
 use Simtabi\Laranail\Avatar\Providers\AvatarServiceProvider;
+use Simtabi\Laranail\Package\Tools\Testing\IsolatedTestCase;
 
-abstract class TestCase extends OrchestraTestCase
+abstract class TestCase extends IsolatedTestCase
 {
     /**
      * @return list<class-string>
