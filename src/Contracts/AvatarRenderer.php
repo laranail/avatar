@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Simtabi\Laranail\Avatar\Contracts;
 
-use Simtabi\Laranail\Avatar\Data\Avatar;
-use Simtabi\Laranail\Avatar\Enums\Format;
-use Simtabi\Laranail\Avatar\Data\Identity;
 use Simtabi\Laranail\Avatar\Data\Appearance;
+use Simtabi\Laranail\Avatar\Data\Avatar;
+use Simtabi\Laranail\Avatar\Data\Identity;
+use Simtabi\Laranail\Avatar\Enums\Format;
 
 /**
  * How an identity becomes something a browser can show.

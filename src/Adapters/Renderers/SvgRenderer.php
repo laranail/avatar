@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace Simtabi\Laranail\Avatar\Adapters\Renderers;
 
-use Simtabi\Laranail\Avatar\Data\Avatar;
-use Simtabi\Laranail\Avatar\Enums\Shape;
-use Simtabi\Laranail\Avatar\Enums\Format;
-use Simtabi\Laranail\Avatar\Data\Identity;
-use Simtabi\Laranail\Avatar\Data\Appearance;
 use Simtabi\Laranail\Avatar\Contracts\AvatarRenderer;
+use Simtabi\Laranail\Avatar\Data\Appearance;
+use Simtabi\Laranail\Avatar\Data\Avatar;
+use Simtabi\Laranail\Avatar\Data\Identity;
+use Simtabi\Laranail\Avatar\Enums\Format;
+use Simtabi\Laranail\Avatar\Enums\Shape;
 
 /**
  * Initials as an SVG document.
@@ -62,9 +62,9 @@ final readonly class SvgRenderer implements AvatarRenderer
 
         $svg = sprintf(
             '<svg xmlns="http://www.w3.org/2000/svg" width="%1$d" height="%1$d" viewBox="0 0 %1$d %1$d" '
-            . 'role="img" aria-label="%2$s">%3$s%4$s'
-            . '<text x="50%%" y="50%%" dy=".35em" fill="%5$s" font-family="%6$s" font-size="%7$d" '
-            . 'font-weight="600" text-anchor="middle">%8$s</text></svg>',
+            .'role="img" aria-label="%2$s">%3$s%4$s'
+            .'<text x="50%%" y="50%%" dy=".35em" fill="%5$s" font-family="%6$s" font-size="%7$d" '
+            .'font-weight="600" text-anchor="middle">%8$s</text></svg>',
             $size,
             $this->escape($identity->label ?? $initials),
             $shape,
