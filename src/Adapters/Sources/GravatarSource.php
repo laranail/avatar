@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Simtabi\Laranail\Avatar\Adapters\Sources;
 
-use Simtabi\Laranail\Avatar\Data\Identity;
 use Simtabi\Laranail\Avatar\Contracts\AvatarSource;
+use Simtabi\Laranail\Avatar\Data\Identity;
 
 /**
  * An email address, resolved to a Gravatar.
@@ -76,7 +76,7 @@ final readonly class GravatarSource implements AvatarSource
             'd' => $defaultImage ?? $this->defaultImage,
         ]);
 
-        return ($https ? 'https://' : 'http://') . self::HOST . $this->hash($identity->email) . '?' . $query;
+        return ($https ? 'https://' : 'http://').self::HOST.$this->hash($identity->email).'?'.$query;
     }
 
     /**
@@ -99,9 +99,9 @@ final readonly class GravatarSource implements AvatarSource
     private function emailFrom(mixed $subject): ?string
     {
         $candidate = match (true) {
-            is_string($subject)                                                         => $subject,
+            is_string($subject) => $subject,
             is_object($subject) && isset($subject->email) && is_string($subject->email) => $subject->email,
-            default                                                                     => null,
+            default => null,
         };
 
         if ($candidate === null) {

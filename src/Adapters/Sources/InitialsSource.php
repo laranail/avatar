@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Simtabi\Laranail\Avatar\Adapters\Sources;
 
-use Stringable;
-use Simtabi\Laranail\Avatar\Data\Identity;
 use Simtabi\Laranail\Avatar\Contracts\AvatarSource;
+use Simtabi\Laranail\Avatar\Data\Identity;
+use Stringable;
 
 /**
  * Any label, resolved to itself.
@@ -21,10 +21,10 @@ final readonly class InitialsSource implements AvatarSource
     public function identify(mixed $subject): ?Identity
     {
         $label = match (true) {
-            is_string($subject)                                                       => trim($subject),
-            $subject instanceof Stringable                                            => trim((string) $subject),
+            is_string($subject) => trim($subject),
+            $subject instanceof Stringable => trim((string) $subject),
             is_object($subject) && isset($subject->name) && is_string($subject->name) => trim($subject->name),
-            default                                                                   => null,
+            default => null,
         };
 
         if ($label === null || $label === '') {
