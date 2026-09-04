@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Simtabi\Laranail\Avatar\Data;
 
+use Stringable;
 use RuntimeException;
 use Simtabi\Laranail\Avatar\Enums\Format;
-use Stringable;
 
 /**
  * A rendered avatar: either a URL to fetch, or bytes to serve.
@@ -63,7 +63,7 @@ final readonly class Avatar implements Stringable
             return $this->url;
         }
 
-        return 'data:'.$this->format->mimeType().';base64,'.base64_encode((string) $this->contents);
+        return 'data:' . $this->format->mimeType() . ';base64,' . base64_encode((string) $this->contents);
     }
 
     /**
@@ -82,7 +82,7 @@ final readonly class Avatar implements Stringable
 
         throw new RuntimeException(
             'This avatar is a URL, not bytes. Fetch it yourself if you need the image — this object '
-            .'does not make network calls, so that a template read cannot time out.',
+            . 'does not make network calls, so that a template read cannot time out.',
         );
     }
 }

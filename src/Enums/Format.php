@@ -17,21 +17,21 @@ enum Format: string
     public static function resolve(string $value): ?self
     {
         return match (strtolower(trim($value))) {
-            'url' => self::Url,
-            'svg' => self::Svg,
-            'png' => self::Png,
+            'url'         => self::Url,
+            'svg'         => self::Svg,
+            'png'         => self::Png,
             'jpg', 'jpeg' => self::Jpeg,
-            'webp' => self::Webp,
-            default => null,
+            'webp'        => self::Webp,
+            default       => null,
         };
     }
 
     public function mimeType(): string
     {
         return match ($this) {
-            self::Url => 'text/uri-list',
-            self::Svg => 'image/svg+xml',
-            self::Png => 'image/png',
+            self::Url  => 'text/uri-list',
+            self::Svg  => 'image/svg+xml',
+            self::Png  => 'image/png',
             self::Jpeg => 'image/jpeg',
             self::Webp => 'image/webp',
         };
@@ -40,9 +40,9 @@ enum Format: string
     public function extension(): string
     {
         return match ($this) {
-            self::Url => '',
-            self::Svg => 'svg',
-            self::Png => 'png',
+            self::Url  => '',
+            self::Svg  => 'svg',
+            self::Png  => 'png',
             self::Jpeg => 'jpg',
             self::Webp => 'webp',
         };
@@ -57,7 +57,7 @@ enum Format: string
     public function needsRasteriser(): bool
     {
         return match ($this) {
-            self::Url, self::Svg => false,
+            self::Url, self::Svg              => false,
             self::Png, self::Jpeg, self::Webp => true,
         };
     }
