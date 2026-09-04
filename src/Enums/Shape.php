@@ -24,9 +24,9 @@ enum Shape: string
     public function radius(int $size): int
     {
         return match ($this) {
-            self::Circle => intdiv($size, 2),
+            self::Circle  => intdiv($size, 2),
             self::Rounded => intdiv($size, 8),
-            self::Square => 0,
+            self::Square  => 0,
         };
     }
 }
