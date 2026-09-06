@@ -19,11 +19,11 @@ namespace Simtabi\Laranail\Avatar\Data;
 final readonly class Identity
 {
     /**
-     * @param  string  $key  a stable identifier for caching and for colour
-     *                       selection — the email, the model key, the label
-     * @param  string|null  $label  human-readable, for initials
-     * @param  string|null  $email  a validated address, when there is one
-     * @param  string|null  $url  a resolved image URL, when there is one
+     * @param string $key a stable identifier for caching and for colour
+     *                    selection — the email, the model key, the label
+     * @param string|null $label human-readable, for initials
+     * @param string|null $email a validated address, when there is one
+     * @param string|null $url a resolved image URL, when there is one
      */
     public function __construct(
         public string $key,

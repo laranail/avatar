@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Simtabi\Laranail\Avatar\Data;
 
-use Simtabi\Laranail\Avatar\Enums\Format;
 use Simtabi\Laranail\Avatar\Enums\Shape;
+use Simtabi\Laranail\Avatar\Enums\Format;
 
 /**
  * How an avatar should look, as one immutable value.
@@ -37,7 +37,7 @@ final readonly class Appearance
     ];
 
     /**
-     * @param  list<string>  $palette  background colours to choose from
+     * @param list<string> $palette background colours to choose from
      */
     private function __construct(
         public int $size = 100,
@@ -92,7 +92,7 @@ final readonly class Appearance
     }
 
     /**
-     * @param  list<string>  $palette
+     * @param list<string> $palette
      */
     public function withPalette(array $palette): self
     {
@@ -191,7 +191,7 @@ final readonly class Appearance
         $hex = ltrim(trim($hex), '#');
 
         if (strlen($hex) === 3) {
-            $hex = $hex[0].$hex[0].$hex[1].$hex[1].$hex[2].$hex[2];
+            $hex = $hex[0] . $hex[0] . $hex[1] . $hex[1] . $hex[2] . $hex[2];
         }
 
         if (strlen($hex) < 6 || preg_match('/^[0-9a-fA-F]{6}/', $hex) !== 1) {
@@ -215,7 +215,7 @@ final readonly class Appearance
      * current values as defaults. Verbose, and it keeps the class readonly on
      * the floor this package supports — `clone ($this, [...])` is 8.5 only.
      *
-     * @param  list<string>|null  $palette
+     * @param list<string>|null $palette
      */
     private function with(
         ?int $size = null,

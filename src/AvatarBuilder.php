@@ -5,13 +5,13 @@ declare(strict_types=1);
 namespace Simtabi\Laranail\Avatar;
 
 use RuntimeException;
-use Simtabi\Laranail\Avatar\Contracts\AvatarRenderer;
-use Simtabi\Laranail\Avatar\Contracts\AvatarSource;
-use Simtabi\Laranail\Avatar\Data\Appearance;
 use Simtabi\Laranail\Avatar\Data\Avatar;
-use Simtabi\Laranail\Avatar\Data\Identity;
-use Simtabi\Laranail\Avatar\Enums\Format;
 use Simtabi\Laranail\Avatar\Enums\Shape;
+use Simtabi\Laranail\Avatar\Enums\Format;
+use Simtabi\Laranail\Avatar\Data\Identity;
+use Simtabi\Laranail\Avatar\Data\Appearance;
+use Simtabi\Laranail\Avatar\Contracts\AvatarSource;
+use Simtabi\Laranail\Avatar\Contracts\AvatarRenderer;
 
 /**
  * The fluent entry point: a subject in, an {@see Avatar} out.
@@ -30,7 +30,7 @@ use Simtabi\Laranail\Avatar\Enums\Shape;
 final readonly class AvatarBuilder
 {
     /**
-     * @param  list<AvatarSource>  $sources  tried in order
+     * @param list<AvatarSource> $sources tried in order
      */
     public function __construct(
         private array $sources,
@@ -80,7 +80,7 @@ final readonly class AvatarBuilder
     }
 
     /**
-     * @param  list<string>  $palette
+     * @param list<string> $palette
      */
     public function palette(array $palette): self
     {
@@ -127,7 +127,7 @@ final readonly class AvatarBuilder
     }
 
     /**
-     * @param  list<AvatarSource>  $sources
+     * @param list<AvatarSource> $sources
      */
     public function sources(array $sources): self
     {
@@ -181,7 +181,7 @@ final readonly class AvatarBuilder
 
         throw new RuntimeException(sprintf(
             'No source could identify the subject. Tried: %s. The initials source accepts anything with '
-            .'a name, so a chain ending in it always resolves.',
+            . 'a name, so a chain ending in it always resolves.',
             $this->sources === []
                 ? 'none — the chain is empty'
                 : implode(', ', array_map(static fn (AvatarSource $s): string => $s->name(), $this->sources)),

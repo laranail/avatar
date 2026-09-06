@@ -6,14 +6,14 @@ namespace Simtabi\Laranail\Avatar;
 
 use Closure;
 use RuntimeException;
-use Simtabi\Laranail\Avatar\Adapters\Renderers\GravatarUrlRenderer;
+use Simtabi\Laranail\Avatar\Data\Avatar;
+use Simtabi\Laranail\Avatar\Data\Appearance;
+use Simtabi\Laranail\Avatar\Contracts\AvatarSource;
+use Simtabi\Laranail\Avatar\Contracts\AvatarRenderer;
 use Simtabi\Laranail\Avatar\Adapters\Renderers\SvgRenderer;
 use Simtabi\Laranail\Avatar\Adapters\Sources\GravatarSource;
 use Simtabi\Laranail\Avatar\Adapters\Sources\InitialsSource;
-use Simtabi\Laranail\Avatar\Contracts\AvatarRenderer;
-use Simtabi\Laranail\Avatar\Contracts\AvatarSource;
-use Simtabi\Laranail\Avatar\Data\Appearance;
-use Simtabi\Laranail\Avatar\Data\Avatar;
+use Simtabi\Laranail\Avatar\Adapters\Renderers\GravatarUrlRenderer;
 
 /**
  * Holds the registered sources and renderers, and hands out builders.
@@ -61,7 +61,7 @@ final class AvatarManager
     }
 
     /**
-     * @param  Closure(): AvatarSource  $factory
+     * @param Closure(): AvatarSource $factory
      */
     public function extendSource(string $name, Closure $factory): self
     {
@@ -71,7 +71,7 @@ final class AvatarManager
     }
 
     /**
-     * @param  Closure(): AvatarRenderer  $factory
+     * @param Closure(): AvatarRenderer $factory
      */
     public function extendRenderer(string $name, Closure $factory): self
     {
@@ -87,7 +87,7 @@ final class AvatarManager
      * "a Gravatar when there is an email, otherwise draw the name", and neither
      * source contains a line about the other.
      *
-     * @param  list<string>  $names
+     * @param list<string> $names
      */
     public function chain(array $names): self
     {
@@ -139,7 +139,7 @@ final class AvatarManager
         if (! $renderer->isAvailable()) {
             throw new RuntimeException(sprintf(
                 'The [%s] avatar renderer cannot run in this environment. The svg renderer needs nothing '
-                .'and is the default; the raster one needs intervention/image plus GD or Imagick.',
+                . 'and is the default; the raster one needs intervention/image plus GD or Imagick.',
                 $name,
             ));
         }
