@@ -4,7 +4,7 @@
 [![Static analysis](https://img.shields.io/github/actions/workflow/status/laranail/avatar/static-analysis.yml?branch=main&label=static%20analysis&style=flat-square)](https://github.com/laranail/avatar/actions/workflows/static-analysis.yml)
 [![License MIT](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](LICENSE)
 
-`laranail/avatar` is not published to Packagist, so there is no registry-version badge to show — see [Install](#install).
+`laranail/avatar` is not published to Packagist, so there is no registry-version badge to show: see [Install](#install).
 
 > Avatars for Laravel — Gravatar and locally-rendered initials behind one immutable fluent builder,
 > with independent source and renderer seams and no image extension required.
