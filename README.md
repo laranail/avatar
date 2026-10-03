@@ -20,7 +20,19 @@ composer require laranail/avatar
 No GD, no Imagick, no `intervention/image` — the default renderer emits SVG, which is text. A CI job
 disables both extensions and asserts initials still render.
 
-## Quick start
+## Quick start guide and usage
+
+### Getting started
+
+Nothing to configure: the service provider and the `Avatar` facade are discovered automatically, and
+the package merges its own defaults. To change them, publish the config to
+`config/laranail/avatar.php`:
+
+```bash
+php artisan vendor:publish --tag="laranail::avatar-config"
+```
+
+### Usage
 
 ```php
 use Simtabi\Laranail\Avatar\Facades\Avatar;
@@ -34,6 +46,16 @@ Avatar::builder()->size(64)->rounded()->for($user);
 Same call, two answers, because the **chain** decides: `['gravatar', 'initials']` means "a Gravatar
 when there is an email address, otherwise draw the name" — and neither source contains a line about
 the other.
+
+Every setter returns a new builder, so a partly-configured one is safe to hold and reuse:
+
+```php
+$base = Avatar::builder()->size(64)->rounded();
+
+$dark  = $base->colours(background: '#111111', foreground: '#ffffff');
+$light = $base->colours(background: '#ffffff', foreground: '#111111');
+// $base is unchanged
+```
 
 ## Two seams, not one
 
