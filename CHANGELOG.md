@@ -67,3 +67,5 @@ Initial release. Extracted from `laranail/toolkit`'s `Modules\Avatar` and `Modul
 
   Only `Roboto-Bold.ttf` (Apache-2.0) ships. That takes the bundled fonts from 6.4 MB to 168 KB, and
   the SVG renderer needs none of them.
+
+[Unreleased]: https://github.com/laranail/avatar/compare/v0.1.0...HEAD
