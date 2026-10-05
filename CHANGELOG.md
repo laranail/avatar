@@ -15,6 +15,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   correctly refused to report a pass. They are now disabled explicitly with setup-php's
   `:gd, :imagick` syntax. The guard was right; the setup was not.
 
+### Changed
+
+- Dropped the `vcs` repositories for `laranail/console`: nothing in this package's `require` or
+  `require-dev` closure installs it (checked with `composer why` after a fresh `composer update`).
+
 ## [0.1.0] - 2026-08-14
 
 ### Added
