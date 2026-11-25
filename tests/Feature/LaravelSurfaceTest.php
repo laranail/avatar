@@ -45,7 +45,7 @@ it('takes its defaults from config', function (): void {
 });
 
 it('keeps https on unless config explicitly turns it off', function (): void {
-    expect(Avatar::builder('gravatar-url')->for('imani@simtabi.com')->src())->toStartWith('https://');
+    expect(Avatar::builder('gravatar-url')->for('someone@example.com')->src())->toStartWith('https://');
 
     config()->set('laranail.avatar.https', false);
 
@@ -55,5 +55,5 @@ it('keeps https on unless config explicitly turns it off', function (): void {
     app()->forgetInstance(AvatarManager::class);
     Avatar::clearResolvedInstances();
 
-    expect(Avatar::builder('gravatar-url')->for('imani@simtabi.com')->src())->toStartWith('http://');
+    expect(Avatar::builder('gravatar-url')->for('someone@example.com')->src())->toStartWith('http://');
 });
