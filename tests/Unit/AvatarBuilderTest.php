@@ -55,14 +55,14 @@ it('lets one partially-configured builder fan out', function (): void {
 it('prefers an email over a name when both are present', function (): void {
     $subject = new class
     {
-        public string $email = 'imani@simtabi.com';
+        public string $email = 'someone@example.com';
 
         public string $name = 'Imani Manyara';
     };
 
     $identity = avatars()->builder()->identify($subject);
 
-    expect($identity->email)->toBe('imani@simtabi.com')
+    expect($identity->email)->toBe('someone@example.com')
         ->and($identity->label)->toBe('Imani Manyara');
 });
 
@@ -208,11 +208,11 @@ it('hashes an email with SHA-256 rather than MD5', function (): void {
     // most real addresses, so a page rendering <img src=".../avatar/<md5>">
     // publishes its users' addresses to anyone who scrapes it. Gravatar has
     // accepted SHA-256 since 2023 and documents it as preferred.
-    $hash = new GravatarSource()->hash('imani@simtabi.com');
+    $hash = new GravatarSource()->hash('someone@example.com');
 
     expect($hash)->toHaveLength(64)
-        ->and($hash)->toBe(hash('sha256', 'imani@simtabi.com'))
-        ->and($hash)->not->toBe(md5('imani@simtabi.com'));
+        ->and($hash)->toBe(hash('sha256', 'someone@example.com'))
+        ->and($hash)->not->toBe(md5('someone@example.com'));
 });
 
 it('normalises the address before hashing, as gravatar documents', function (): void {
@@ -221,31 +221,31 @@ it('normalises the address before hashing, as gravatar documents', function (): 
     // default image rather than a 404.
     $source = new GravatarSource;
 
-    expect($source->hash('  IMANI@Simtabi.COM  '))->toBe($source->hash('imani@simtabi.com'));
+    expect($source->hash('  SOMEONE@Example.COM  '))->toBe($source->hash('someone@example.com'));
 });
 
 it('keeps md5 reachable for an application that stored the old hash', function (): void {
-    expect(new GravatarSource(algorithm: 'md5')->hash('imani@simtabi.com'))
-        ->toBe(md5('imani@simtabi.com'));
+    expect(new GravatarSource(algorithm: 'md5')->hash('someone@example.com'))
+        ->toBe(md5('someone@example.com'));
 });
 
 it('emits https by default', function (): void {
     // The two modules merged here disagreed — one defaulted true, two of the
     // other's methods defaulted false — so one application emitted both, and
     // the http one is a mixed-content warning on every page that shows it.
-    $url = avatars()->builder('gravatar-url')->for('imani@simtabi.com')->src();
+    $url = avatars()->builder('gravatar-url')->for('someone@example.com')->src();
 
     expect($url)->toStartWith('https://');
 });
 
 it('drops to http only when explicitly asked', function (): void {
-    $url = avatars()->builder('gravatar-url')->withHttps(false)->for('imani@simtabi.com')->src();
+    $url = avatars()->builder('gravatar-url')->withHttps(false)->for('someone@example.com')->src();
 
     expect($url)->toStartWith('http://');
 });
 
 it('carries the requested size into the url', function (): void {
-    expect(avatars()->builder('gravatar-url')->size(256)->for('imani@simtabi.com')->src())
+    expect(avatars()->builder('gravatar-url')->size(256)->for('someone@example.com')->src())
         ->toContain('s=256');
 });
 
@@ -289,7 +289,7 @@ it('names the registered renderers when asked for an unknown one', function (): 
 
 it('refuses to hand back a url as bytes', function (): void {
     // A value object that fetches when read is one that can time out.
-    expect(fn (): string => avatars()->builder('gravatar-url')->for('imani@simtabi.com')->bytes())
+    expect(fn (): string => avatars()->builder('gravatar-url')->for('someone@example.com')->bytes())
         ->toThrow(RuntimeException::class, 'does not make network calls');
 });
 
