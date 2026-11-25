@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- **Rector runs again on 2.9.** Rector 2.9 removed `SetList::EARLY_RETURN`, so `composer rector` failed with "Undefined constant" before checking anything. `rector.php` now names its sets through `withPreparedSets()` (dead code, code quality, type declarations), Rector's documented form. The early-return set is left out: 2.9 retired it, moving its rules into the code-quality and coding-style sets, and the coding-style set would add unrelated rules.
 - **The "Without GD or Imagick" job could never run.** It omitted the two extensions from
   `setup-php`'s list, but omission does not remove what the runner's PHP already ships, so
   GD stayed loaded and the job's own guard (`"gd is loaded; this job proves nothing"`)

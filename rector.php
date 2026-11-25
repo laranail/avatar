@@ -3,7 +3,6 @@
 declare(strict_types=1);
 
 use Rector\Config\RectorConfig;
-use Rector\Set\ValueObject\SetList;
 
 /**
  * Pinned to the **php84** set, matching this package's `^8.4.1 || ^8.5` floor.
@@ -19,10 +18,9 @@ return RectorConfig::configure()
         __DIR__ . '/tests/Fixtures',
     ])
     ->withPhpSets(php84: true)
-    ->withSets([
-        SetList::CODE_QUALITY,
-        SetList::DEAD_CODE,
-        SetList::TYPE_DECLARATION,
-        SetList::EARLY_RETURN,
-    ])
+    ->withPreparedSets(
+        deadCode: true,
+        codeQuality: true,
+        typeDeclarations: true,
+    )
     ->withImportNames(removeUnusedImports: true);
